@@ -1,0 +1,23 @@
+syntax = "proto3";
+package ywx;
+option go_package="./ywx";
+
+service Teser{
+  rpc GetPid(PidRequest) returns (PidReply){}
+  rpc GetIP(IPRequest) returns (IPReply) {}
+}
+
+message PidRequest{
+  int32 inId = 1;
+}
+
+message PidReply{
+  int32 outId = 1;
+}
+
+message IPRequest{
+}
+
+message IPReply{
+  string IP = 2;
+}
