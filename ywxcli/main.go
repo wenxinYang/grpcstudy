@@ -35,12 +35,9 @@ func main() {
 	defer conn.Close()
 	client := ywx.NewTeserClient(conn)
 
-	// Contact the server and print out its response.
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	//msg, err := client.SayHello(ctx, &user.HelloRequest{Name: *name})
-	//fmt.Printf("msg = %s\n", msg)
-	//fmt.Println(msg.GetMessage())
+
 	pid, err := client.GetPid(ctx, &ywx.PidRequest{InId: int32(inId)})
 	if err != nil {
 		log.Fatalf("get pid fail")
